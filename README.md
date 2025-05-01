@@ -1,4 +1,16 @@
-# Getting started with Serenity and Cucumber
+# Getting started with Serenity Screenplay Playwright and Cucumber
+
+Note: this is a work in progress demo and is mostly for resolving issues with the Playwright integration.
+It is not a complete tutorial, and the README below might be outdated as it's based on the starter project using
+serenity cucumber with Selenium Webdriver.
+
+To build the project, you need Java 21 and use Gradle (maven setup is not updated):
+
+```bash
+./gradlew clean build
+```
+
+## Introduction
 
 Serenity BDD is a library that makes it easier to write high quality automated acceptance tests, with powerful reporting and living documentation features. It has strong support for both web testing with Selenium, and API testing using RestAssured.
 
