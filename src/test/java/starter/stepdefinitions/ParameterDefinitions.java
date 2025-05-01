@@ -4,7 +4,7 @@ import io.cucumber.java.Before;
 import io.cucumber.java.ParameterType;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.actors.OnStage;
-import net.serenitybdd.screenplay.actors.OnlineCast;
+import org.demo.screenplay.playwright.actors.PlaywrightOnlineCast;
 
 public class ParameterDefinitions {
 
@@ -15,6 +15,6 @@ public class ParameterDefinitions {
 
     @Before
     public void setTheStage() {
-        OnStage.setTheStage(new OnlineCast());
+        OnStage.setTheStage(new PlaywrightOnlineCast());
     }
 }

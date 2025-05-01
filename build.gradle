@@ -33,13 +33,15 @@ ext {
 }
 
 dependencies {
+    testImplementation project(":serenity-playwright-extension")
+
     testImplementation platform("org.junit:junit-bom:${junit_version}")
     testImplementation platform("io.cucumber:cucumber-bom:${cucumber_version}")
 
     testImplementation "net.serenity-bdd:serenity-core:${serenity_version}"
     testImplementation "net.serenity-bdd:serenity-cucumber:${serenity_version}"
     testImplementation "net.serenity-bdd:serenity-screenplay:${serenity_version}"
-    testImplementation "net.serenity-bdd:serenity-screenplay-webdriver:${serenity_version}"
+    // testImplementation "net.serenity-bdd:serenity-screenplay-webdriver:${serenity_version}"
     testImplementation "net.serenity-bdd:serenity-screenplay-playwright:${serenity_version}"
     testImplementation "net.serenity-bdd:serenity-ensure:${serenity_version}"
     testImplementation "org.junit.platform:junit-platform-launcher"

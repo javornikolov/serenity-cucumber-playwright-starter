@@ -3,3 +3,4 @@ pluginManagement {
 }
 
 rootProject.name = 'serenity-playwright-cucumber-starter'
+include 'serenity-playwright-extension'

@@ -1,32 +1,39 @@
 package starter.stepdefinitions;
 
+import static net.serenitybdd.screenplay.actors.OnStage.theActorInTheSpotlight;
+
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+
+import com.microsoft.playwright.options.LoadState;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.ensure.Ensure;
-import net.serenitybdd.screenplay.questions.page.TheWebPage;
-import starter.navigation.NavigateTo;
+import net.serenitybdd.screenplay.playwright.questions.TheWebPage;
+import org.demo.screenplay.playwright.interactions.WaitFor;
+import starter.navigation.DuckDuckGoHomePage;
+import starter.navigation.Navigate;
 import starter.search.LookForInformation;
 
 public class SearchStepDefinitions {
-
     @Given("{actor} is researching things on the internet")
-    public void researchingThings(Actor actor) {
-        actor.wasAbleTo(NavigateTo.theSearchHomePage());
+    public void sergeyIsResearchingThingsOnTheInternet(Actor actor) {
+        actor.wasAbleTo(Navigate.to(DuckDuckGoHomePage.HOME_PAGE_URL));
     }
 
-    @When("{actor} looks up {string}")
-    public void searchesFor(Actor actor, String term) {
-        actor.attemptsTo(
-                LookForInformation.about(term)
+    @When("he looks up {string}")
+    public void heLooksUp(String searchTerm) {
+        theActorInTheSpotlight().attemptsTo(
+            LookForInformation.about(searchTerm)
         );
     }
 
-    @Then("{actor} should see information about {string}")
-    public void should_see_information_about(Actor actor, String term) {
-        actor.attemptsTo(
-                Ensure.that(TheWebPage.title()).containsIgnoringCase(term)
+    @Then("he should see information about {string}")
+    public void heShouldSeeInformationAbout(String term) {
+        theActorInTheSpotlight().attemptsTo(
+            WaitFor.url("**/*q=" + term + "*"),
+            WaitFor.loadState(LoadState.DOMCONTENTLOADED),
+            Ensure.that(TheWebPage.title()).containsIgnoringCase(term)
         );
     }
 }

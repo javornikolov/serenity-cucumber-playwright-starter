@@ -5,4 +5,5 @@ import net.thucydides.core.pages.PageObject;
 
 @DefaultUrl("https://duckduckgo.com")
 public class DuckDuckGoHomePage extends PageObject {
+  public static final String HOME_PAGE_URL = "https://duckduckgo.com";
 }

@@ -1,0 +1,17 @@
+plugins {
+  id 'buildlogic.java-library-conventions'
+}
+
+ext {
+  serenity_version = "4.2.22"
+}
+
+dependencies {
+  implementation "net.serenity-bdd:serenity-screenplay-playwright:${serenity_version}"
+  implementation "com.microsoft.playwright:playwright:1.51.0"
+  compileOnly "org.projectlombok:lombok:1.18.38"
+  annotationProcessor "org.projectlombok:lombok:1.18.38"
+
+  testImplementation 'org.assertj:assertj-core:3.27.3'
+}
+
